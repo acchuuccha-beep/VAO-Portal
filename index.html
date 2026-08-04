@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAO Portal - Daily Study Workflow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash" class="splash">
+    <div class="splash-content">
+      <div class="splash-icon">📚</div>
+      <div class="splash-title">VAO Portal</div>
+      <div class="splash-subtitle">Village Administrative Officer</div>
+      <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+      <div class="splash-tagline">Your Daily Study Workflow</div>
+    </div>
+  </div>
+
+  <div id="app">
+    <!-- Dashboard -->
+    <div id="view-dashboard" class="view active">
+      <header class="header">
+        <div class="header-content">
+          <div class="logo-area">
+            <h1 class="logo">📚 VAO Portal</h1>
+            <p class="subtitle">Village Administrative Officer — Daily Study Workflow</p>
+          </div>
+        </div>
+      </header>
+      <main class="container">
+        <div class="welcome-card">
+          <h2>Welcome to Your Study Portal</h2>
+          <p>Choose a paper to begin your daily study session</p>
+        </div>
+        <div class="paper-grid">
+          <div class="paper-card" onclick="showPaper('paper1')">
+            <div class="paper-icon">📋</div>
+            <h3>Paper 1</h3>
+            <p>General Studies</p>
+            <span class="subject-count" id="p1-count">17 Topics</span>
+          </div>
+          <div class="paper-card" onclick="showPaper('paper2')">
+            <div class="paper-icon">📋</div>
+            <h3>Paper 2</h3>
+            <p>Languages & Computer</p>
+            <span class="subject-count" id="p2-count">3 Topics</span>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Subject Selection -->
+    <div id="view-subjects" class="view">
+      <header class="header">
+        <div class="header-content">
+          <button class="back-btn" onclick="showDashboard()">&larr; Back</button>
+          <div class="logo-area">
+            <h1 class="logo" id="paper-title">Paper 1</h1>
+          </div>
+        </div>
+      </header>
+      <main class="container">
+        <div class="subject-grid" id="subject-list"></div>
+      </main>
+    </div>
+
+    <!-- Day Selection -->
+    <div id="view-days" class="view">
+      <header class="header">
+        <div class="header-content">
+          <button class="back-btn" onclick="showPaper(currentPaper)">&larr; Back</button>
+          <div class="logo-area">
+            <h1 class="logo" id="subject-title">Subject</h1>
+          </div>
+        </div>
+      </header>
+      <main class="container">
+        <div class="days-grid" id="days-list"></div>
+      </main>
+    </div>
+
+    <!-- Study Mode -->
+    <div id="view-study" class="view">
+      <header class="header compact">
+        <div class="header-content">
+          <button class="back-btn" onclick="showDays(currentSubject)">&larr; Back</button>
+          <div class="logo-area">
+            <h1 class="logo" id="study-title">Day 1</h1>
+          </div>
+          <div class="mode-toggle" id="mode-toggle">
+            <button class="mode-btn active" id="mode-study" onclick="switchMode('study')">📚 Study</button>
+            <button class="mode-btn" id="mode-exam" onclick="switchMode('exam')">📝 Exam</button>
+          </div>
+          <span class="score-pill" id="score-pill">0 / 10</span>
+        </div>
+      </header>
+      <main class="container wide">
+        <div id="questions-container"></div>
+        <div class="day-complete-banner" id="day-complete-banner" style="display:none;">
+          <div class="complete-icon">✅</div>
+          <h3>Day Completed!</h3>
+          <p id="complete-stats"></p>
+          <button class="btn-primary" onclick="showDashboard()">Back to Dashboard</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="data.js?v=20260721j"></script>
+  <script src="app.js?v=20260721"></script>
+</body>
+</html>
